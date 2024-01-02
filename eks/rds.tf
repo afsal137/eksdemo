@@ -12,7 +12,6 @@ module "db" {
 
   identifier = local.name
 
-  # All available versions: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts
   engine               = "postgres"
   engine_version       = "14"
   family               = "postgres14" # DB parameter group
@@ -22,9 +21,7 @@ module "db" {
   allocated_storage     = 20
   max_allocated_storage = 100
 
-  # NOTE: Do NOT use 'user' as the value for 'username' as it throws:
-  # "Error creating DB Instance: InvalidParameterValue: MasterUsername
-  # user cannot be used as it is a reserved word used by the engine"
+
   manage_master_user_password = false
   db_name  = "eksdemopostgres"
   username = "eksdemopostgres"
