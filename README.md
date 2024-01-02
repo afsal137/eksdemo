@@ -17,9 +17,9 @@ This is a project to deploy a highly available sample application stack in AWS. 
 
 <ins>**ECR**</ins>: ECR repositories will be created for storing container images. The EKS cluster will fetch the images from ECR.
 
-<ins>**IAM**</ins>: IAM will be used to creating the necessary roles and policies.
+<ins>**IAM**</ins>: IAM will be used for creating the necessary roles and policies.
 
-<ins>**S3 with DynamoDB**</ins>: S3 along with DynamoDB will be used to storing the Terraform state and state locking mechanism.
+<ins>**S3 with DynamoDB**</ins>: S3 along with DynamoDB will be used for storing the Terraform state and state locking mechanism.
 
 # Usage
 
