@@ -25,3 +25,4 @@ phases:
 artifacts:
   files:
     - eks/plan.out
+    - eks/buildspec_apply.yml
