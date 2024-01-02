@@ -1,6 +1,9 @@
 # eksdemo
 This is a project to deploy a highly available sample application stack in AWS. EKS Fargate is used along with Multi AZ RDS using Terraform.
 
+# PreRequisites
+Fully functional AWS CLI with all the required access.
+
 # Architecture Diagram
 ![eksdemo_architecture](https://github.com/afsal137/eksdemo/assets/9499064/4a5c9092-5ccd-41a7-bdf0-4082497e41c4)
 
