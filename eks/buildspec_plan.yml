@@ -19,8 +19,8 @@ phases:
 
   build:
     commands:
-      - kubectl get namespaces
-      - kubectl get pods
+      - kubectl get namespaces --kubeconfig ~/.kube/config
+      - kubectl get pods --kubeconfig ~/.kube/config
       - terraform plan -out=plan.out
 
 artifacts:
