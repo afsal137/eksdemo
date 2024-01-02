@@ -11,6 +11,7 @@ phases:
 
   pre_build:
     commands:
+      - aws eks --region us-east-1 update-kubeconfig --name afsdemo || echo 0
       - terraform init
 
   build:
