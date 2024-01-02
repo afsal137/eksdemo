@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webclient
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: webclient
+  template:
+    metadata:
+      labels:
+        app: webclient
+    spec:
+      containers:
+      - name: webclient
+        image: <ECR_REPO>/afsdemo/todoclient:latest
+        ports:
+        - containerPort: 3000
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "256Mi"
+          limits:
+            cpu: "1000m"
+            memory: "512Mi"
