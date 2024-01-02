@@ -1,5 +1,4 @@
 resource "helm_release" "alb_controller" {
-  #depends_on = [var.mod_dependency, kubernetes_namespace.alb_controller]
   count      = var.enabled ? 1 : 0
   name       = var.helm_chart_name
   chart      = var.helm_chart_release_name
