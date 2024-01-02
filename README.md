@@ -20,3 +20,26 @@ This is a project to deploy a highly available sample application stack in AWS. 
 <ins>**IAM**</ins>: IAM will be used to creating the necessary roles and policies.
 
 <ins>**S3 with DynamoDB**</ins>: S3 along with DynamoDB will be used to storing the Terraform state and state locking mechanism.
+
+# Usage
+
+### Initialize Backend
+From the root directory. Run the following commands to create S3 and DynamoDB for storing tfstate, initialize backend, generate a password to use in RDS, create secrets to store the password and github token.
+
+```
+terraform init
+
+terraform apply -var "github_token=$github_token"
+```
+
+### Create Infra Pipeline
+Go to infra_pipeline directory and create codepipeline to deploy infrastructure
+```
+cd infra_pipeline
+terraform init
+terraform apply 
+```
+
+This will create the pipeline and execute the Terraform code in the EKS directory to create the EKS cluster shown in the architecture diagram.
+
+Sample Manifests files are present in k8s/manifests directory. After uploading docker images to ECR repos and updating the manifests files, the application can be deployed by running `kubectl apply -f`. This can be further enhanced by automation using another codepipeline for application similar to the one for infra. This can be fully automated by calling the application pipeline in the post_build of the apply stage of infra pipeline.
