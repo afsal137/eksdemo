@@ -4,6 +4,9 @@ phases:
   install:
     commands:
       - cd eks
+      - curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+      - mv kubectl /usr/local/bin/kubectl
+      - chmod 0755 /usr/local/bin/kubectl
       - wget https://releases.hashicorp.com/terraform/1.6.6/terraform_1.6.6_linux_amd64.zip
       - unzip terraform_1.6.6_linux_amd64.zip
       - mv terraform /usr/local/bin/
@@ -16,6 +19,8 @@ phases:
 
   build:
     commands:
+      - kubectl get namespaces
+      - kubectl get pods
       - terraform plan -out=plan.out
 
 artifacts:
