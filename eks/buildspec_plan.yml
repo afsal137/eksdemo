@@ -18,7 +18,6 @@ phases:
 
   build:
     commands:
-      - kubectl get pods --kubeconfig ~/.kube/config
       - terraform plan -out=plan.out
 
 artifacts:
