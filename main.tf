@@ -43,3 +43,14 @@ resource "aws_secretsmanager_secret_version" "password" {
   secret_id = aws_secretsmanager_secret.eksdemopostgres.id
   secret_string = random_password.eksdemopostgres.result
 }
+
+
+## Store Github Access token in Secrets Manager
+resource "aws_secretsmanager_secret" "eksdemogithub" {
+  name = "eksdemogithub"
+}
+
+resource "aws_secretsmanager_secret_version" "github_token" {
+  secret_id = aws_secretsmanager_secret.eksdemogithub.id
+  secret_string = var.github_token
+}
